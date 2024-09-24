@@ -103,6 +103,7 @@ public class VMProps implements Callable<Map<String, String>> {
         map.put("vm.debug", this::vmDebug);
         map.put("vm.jvmci", this::vmJvmci);
         map.put("vm.jvmci.enabled", this::vmJvmciEnabled);
+        map.put("vm.jvmci.nativeLibrary", this::vmJvmciNativeLibrary);
         map.put("vm.emulatedClient", this::vmEmulatedClient);
         // vm.hasSA is "true" if the VM contains the serviceability agent
         // and jhsdb.
@@ -280,6 +281,18 @@ public class VMProps implements Callable<Map<String, String>> {
         return "" + Compiler.isJVMCIEnabled();
     }
 
+
+    /**
+     * @return true if VM was launched with +UseJVMCINativeLibrary and false otherwise
+     */
+    protected String vmJvmciNativeLibrary() {
+        // builds with jvmci have this flag
+        Boolean r = WB.getBooleanVMFlag("UseJVMCINativeLibrary");
+        if (r != null && r) {
+            return "true";
+        }
+        return "false";
+    }
 
     /**
      * @return true if VM runs in emulated-client mode and false otherwise.

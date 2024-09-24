@@ -22,9 +22,9 @@
  */
 
 /**
- * @test
+ * @test Check VM option preconditions to JVMCI.getRuntime()
  * @bug 8136421
- * @requires vm.jvmci
+ * @requires vm.jvmci & ! vm.jvmci.nativeLibrary
  * @library /test/lib /
  * @modules java.base/jdk.internal.misc
  * @modules jdk.internal.vm.ci/jdk.vm.ci.runtime
@@ -46,7 +46,6 @@
  *      -Dcompiler.jvmci.JVM_GetJVMCIRuntimeTest.threaded=true
  *      -XX:-EnableJVMCI -XX:-UseJVMCICompiler
  *      compiler.jvmci.JVM_GetJVMCIRuntimeTest
-
  */
 
 package compiler.jvmci;

@@ -65,6 +65,7 @@ requires.properties= \
     vm.gc.ZSinglegen \
     vm.jvmci \
     vm.jvmci.enabled \
+    vm.jvmci.nativeLibrary \
     vm.emulatedClient \
     vm.cpu.features \
     vm.pageSize \

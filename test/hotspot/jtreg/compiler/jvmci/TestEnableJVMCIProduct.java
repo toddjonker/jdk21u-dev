@@ -26,7 +26,7 @@
  * @bug 8235539 8245717
  * @summary Tests effect of -XX:+EnableJVMCIProduct on EnableJVMCI and UseJVMCICompiler
  * @requires vm.flagless
- * @requires vm.jvmci
+ * @requires vm.jvmci & ! vm.jvmci.enabled
  * @library /test/lib
  * @run driver TestEnableJVMCIProduct
  */
